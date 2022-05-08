@@ -5,7 +5,8 @@ import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import Home from './Pages/Home/Home/Home';
 import Blogs from './Pages/Blogs/Blogs';
-
+import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
+import Inventory from './Pages/Inventory/Inventory';
 function App() {
   return (
     <div >
@@ -16,6 +17,13 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='/inventory/:itemId' element={
+          <RequireAuth>
+            <Inventory>
+
+            </Inventory>
+          </RequireAuth>
+        }></Route>
 
 
       </Routes>

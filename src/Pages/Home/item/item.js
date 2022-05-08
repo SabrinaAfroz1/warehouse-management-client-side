@@ -6,8 +6,8 @@ const Item = (props) => {
     const { _id, name, image, description, supplierName, price, quantity } = props.item;
     const navigate = useNavigate();
 
-    const navigateToServiceDetail = _id => {
-        navigate(`/item/${_id}`);
+    const navigateToInventory = _id => {
+        navigate(`/inventory/${_id}`);
     }
     return (
         <div className=' item rounded container shadow-lg pb-4 '>
@@ -17,7 +17,7 @@ const Item = (props) => {
             <p>Quantity : {quantity} kg</p>
             <p>Supplier : {supplierName} </p>
             <p><small>{description}</small></p>
-            <button onClick={() => navigateToServiceDetail(_id)} className='btn btn-success px-5'>Update</button>
+            <button onClick={() => navigateToInventory(_id)} className='btn btn-success px-5'>Update</button>
 
         </div>
     );
