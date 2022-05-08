@@ -1,9 +1,12 @@
 import React from 'react';
+import TopNav from '../TopNav/TopNav';
+import Upcoming from '../Upcoming/Upcoming';
 
 const Home = () => {
     return (
         <div>
-            <h2>hello</h2>
+            <TopNav></TopNav>
+            <Upcoming></Upcoming>
 
         </div>
     );
