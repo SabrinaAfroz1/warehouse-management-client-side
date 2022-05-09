@@ -9,7 +9,7 @@ const useItemDetails = itemId => {
             .then(data => setItem(data));
     }, [itemId]);
 
-    return [item];
+    return [item ,setItem];
 }
 
 export default useItemDetails;

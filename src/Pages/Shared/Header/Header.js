@@ -35,7 +35,9 @@ const Header = () => {
                                 <Nav.Link as={Link} className="btn btn-primary" to="/login">LogIn</Nav.Link>}
 
                             <Nav.Link as={Link} to='/register'>Register</Nav.Link>
-                            <Nav.Link as={Link} to='/about'>About Us</Nav.Link>
+                            <Nav.Link as={Link} to='/addItem'>Add Item</Nav.Link>
+                            <Nav.Link as={Link} to='/manageItem'>Manage Item</Nav.Link>
+                            <Nav.Link as={Link} to='/myItem'>My Item</Nav.Link>
                             <Nav.Link as={Link} to='/blogs'>Blogs</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

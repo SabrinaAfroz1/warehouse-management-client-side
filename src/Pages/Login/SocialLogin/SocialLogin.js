@@ -9,21 +9,20 @@ import useToken from '../../../Hooks/useToken/useToken';
 
 const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-    const [signInWithGithub, user1, loading1, error1] = useSignInWithGithub(auth);
     const navigate = useNavigate();
     const location = useLocation();
-    const [token] = useToken(user || user1);
+    const [token] = useToken(user);
 
     let from = location.state?.from?.pathname || "/";
 
     let errorElement;
 
-    if (loading || loading1) {
+    if (loading) {
         return <Loading></Loading>
     }
 
-    if (error || error1) {
-        errorElement = <p className='text-danger'>Error: {error?.message} {error1?.message}</p>
+    if (error) {
+        errorElement = <p className='text-danger'>Error: {error?.message} </p>
     }
 
     if (token) {
