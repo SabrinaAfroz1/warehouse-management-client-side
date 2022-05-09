@@ -8,7 +8,7 @@ const Inventory = () => {
     const { itemId } = useParams();
     const [item, setItem] = useItemDetails(itemId);
 
-
+    //for delivered quantity
     const delivered = itemId => {
         const oldquanitiy = parseInt(item.quantity);
         const newquantity = oldquanitiy - 1;
@@ -20,14 +20,34 @@ const Inventory = () => {
                 'Content-type': 'application/json'
             },
 
-            body: JSON.stringify(newquantity)
+            body: JSON.stringify({ newquantity })
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                alert("Delivered Item Successfully");
+            })
+
+    }
+    //for restock quantity
+    const updateQuan = event => {
+        event.preventDefault();
+        const oldQuantity = parseInt(item.quantity)
+        const quantity = parseInt(event.target.quantity.value);
+        const newquantity = quantity + oldQuantity;
+        const url = `http://localhost:5000/item/${itemId}`
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({ newquantity })
         })
             .then(response => response.json())
             .then(data => {
                 console.log(data);
                 alert("Update Item Successfully");
             })
-
     }
 
 
@@ -46,7 +66,8 @@ const Inventory = () => {
                         <h3>Price : {item.price}</h3>
                         <h3> Supplier : {item.supplierName}</h3>
                         <button onClick={() => delivered(itemId)} className='btn btn-success px-5'>Deliverd</button>
-                        <form>
+
+                        <form onSubmit={updateQuan}>
                             <input className="form-control mt-3" type="number" name="quantity" id="quantity" placeholder='Quantity' />
                             <br />
                             <button className='btn btn-success px-5'>Restock</button>
