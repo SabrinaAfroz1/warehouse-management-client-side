@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 
 import { Link } from 'react-router-dom';
+import Footer from '../../Shared/Footer/Footer';
 import Items from '../Items/Items';
 import TopNav from '../TopNav/TopNav';
 import Upcoming from '../Upcoming/Upcoming';
@@ -17,6 +18,7 @@ const Home = () => {
             <div className='d-flex justify-content-center '>
                 <Button as={Link} to='/manageItem' className='btn btn-success m-5'>MANAGE INVENTORIES</Button>
             </div>
+            <Footer></Footer>
 
 
 

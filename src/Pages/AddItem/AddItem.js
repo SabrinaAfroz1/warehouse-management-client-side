@@ -1,15 +1,42 @@
-import React from 'react';
 import { useForm } from "react-hook-form";
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 
 const AddItem = () => {
+    const [user] = useAuthState(auth);
     const { register, handleSubmit } = useForm();
 
+    // const onUpdate = data => {
+
+    //     const url1 = `http://localhost:5000/myitem`;
+    //     fetch(url1, {
+    //         method: 'POST',
+    //         headers: {
+    //             'content-type': "application/json"
+    //         },
+    //         body: JSON.stringify(data)
+    //     })
+    //         .then(res => res.json())
+    //         .then(result => {
+    //             alert('addedd now');
+    //         })
+    // }
+
     const onSubmit = data => {
-        alert('Added');
 
-
+        const myitem = {
+            email: user.email,
+            name: data.name,
+            price: data.price,
+            quantity: data.quantity,
+            supplierName: data.supplierName,
+            description: data.description
+        }
         const url = 'http://localhost:5000/item';
+        const url1 = `http://localhost:5000/myitem`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -21,6 +48,19 @@ const AddItem = () => {
             .then(result => {
 
             })
+
+        fetch(url1, {
+            method: 'POST',
+            headers: {
+                'content-type': "application/json"
+            },
+            body: JSON.stringify(myitem)
+        })
+            .then(res => res.json())
+            .then(result => {
+                alert('added');
+            })
+
     }
     return (
         <div className='w-50 mx-auto mt-5 shadow-lg rounded p-5 '>

@@ -24,11 +24,13 @@ const Inventory = () => {
         })
             .then(response => response.json())
             .then(data => {
+
                 console.log(data);
                 alert("Delivered Item Successfully");
-            })
 
+            })
     }
+
     //for restock quantity
     const updateQuan = event => {
         event.preventDefault();
