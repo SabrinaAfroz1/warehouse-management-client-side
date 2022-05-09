@@ -11,6 +11,7 @@ import AddItem from './Pages/AddItem/AddItem';
 import ManageItem from './Pages/ManageItem/ManageItem';
 
 import Myitems from './Pages/MyItem/Myitems';
+import Notfound from './Pages/Shared/Notfound/Notfound';
 function App() {
   return (
     <div >
@@ -50,7 +51,7 @@ function App() {
           </RequireAuth>
         }></Route>
 
-
+        <Route path='*' element={<Notfound></Notfound>}></Route>
       </Routes>
 
     </div>
