@@ -13,7 +13,7 @@ const Inventory = () => {
         const oldquanitiy = parseInt(item.quantity);
         const newquantity = oldquanitiy - 1;
 
-        const url = `http://localhost:5000/item/${itemId}`
+        const url = `https://radiant-woodland-37304.herokuapp.com/item/${itemId}`
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -37,7 +37,7 @@ const Inventory = () => {
         const oldQuantity = parseInt(item.quantity)
         const quantity = parseInt(event.target.quantity.value);
         const newquantity = quantity + oldQuantity;
-        const url = `http://localhost:5000/item/${itemId}`
+        const url = `https://radiant-woodland-37304.herokuapp.com/item/${itemId}`
         fetch(url, {
             method: 'PUT',
             headers: {

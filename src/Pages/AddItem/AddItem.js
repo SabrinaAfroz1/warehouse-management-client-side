@@ -11,7 +11,7 @@ const AddItem = () => {
 
     // const onUpdate = data => {
 
-    //     const url1 = `http://localhost:5000/myitem`;
+    //     const url1 = `https://radiant-woodland-37304.herokuapp.com/myitem`;
     //     fetch(url1, {
     //         method: 'POST',
     //         headers: {
@@ -35,8 +35,8 @@ const AddItem = () => {
             supplierName: data.supplierName,
             description: data.description
         }
-        const url = 'http://localhost:5000/item';
-        const url1 = `http://localhost:5000/myitem`;
+        const url = 'https://radiant-woodland-37304.herokuapp.com/item';
+        const url1 = `https://radiant-woodland-37304.herokuapp.com/myitem`;
         fetch(url, {
             method: 'POST',
             headers: {
